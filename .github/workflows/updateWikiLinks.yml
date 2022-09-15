@@ -1,0 +1,12 @@
+name: Update Wiki links
+
+on:
+  release:
+    types: [ "published" ]
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
