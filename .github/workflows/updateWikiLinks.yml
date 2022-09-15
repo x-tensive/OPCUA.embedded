@@ -1,4 +1,4 @@
-name: Update Wiki links
+name: update-wiki-links
 
 on:
   release:
