@@ -2,7 +2,7 @@ name: update-wiki-links
 
 on:
   release:
-    types: [ "edited" ]
+    types: [ "released" ]
 
 jobs:
   execute:
