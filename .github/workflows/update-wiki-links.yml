@@ -8,6 +8,11 @@ jobs:
   updateWikiLinks:
     runs-on: ubuntu-latest
     steps:
+      - name: dumpRelease
+        uses: actions/github-script@v6
+        with:
+          script: |
+            console.log(${{ github.event.release }});
 #      - name: checkout
 #        uses: actions/checkout@v3
 #        with:
