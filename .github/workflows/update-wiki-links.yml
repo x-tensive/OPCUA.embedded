@@ -17,7 +17,9 @@ jobs:
 #          echo ${{ github.ref }}
 #          echo ${{ github.ref_name }}
 #          echo ${{ github.ref_type }}
-      - name: assets
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: assetsQuery
         id: assetsQuery
         uses: octokit/request-action@v2.1.0
         with:
@@ -29,6 +31,6 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const updateLinks = require("./.github/workflows/update-wiki-links");
+            const updateLinks = require("update-wiki-links");
             updateLinks(null);
 
