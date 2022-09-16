@@ -15,4 +15,4 @@ jobs:
       - name: echo
         run: |
           echo ${{ github.event.release.GITHUB_REF }}
-          echo ${{ GITHUB_REF }}
+
