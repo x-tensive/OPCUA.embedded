@@ -26,7 +26,7 @@ jobs:
       - name: assets2
         uses: octokit/request-action@v2.1.0
         with:
-          route: GET /repos/x-tensive/OPCUA.embedded/releases/TEST/assets
+          route: GET /repos/x-tensive/OPCUA.embedded/releases
           repository: ${{ github.repository }}
           ref_name: ${{ github.ref_name }}
         env:
