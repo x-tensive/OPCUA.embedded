@@ -5,7 +5,7 @@ on:
     types: [ "released" ]
 
 jobs:
-  getAssets:
+  updateWikiLinks:
     runs-on: ubuntu-latest
     steps:
 #      - name: checkout
@@ -25,9 +25,10 @@ jobs:
           repository: ${{ github.repository }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: printAssets
+      - name: updateLinks
         uses: actions/github-script@v6
-        script: |
-          const updateLinks = require("./update-wiki-links");
-          updateLinks(null);
+        with:
+          script: |
+            const updateLinks = require("./update-wiki-links");
+            updateLinks(null);
 
