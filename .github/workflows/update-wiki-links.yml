@@ -33,5 +33,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: printAssets
-        run: echo ${{ steps.assetsQuery.outputs }}
+        run: echo ${{ join(steps.assetsQuery.outputs.*, '\n') }}
 
