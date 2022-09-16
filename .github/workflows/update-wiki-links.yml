@@ -12,7 +12,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            console.log(${{ github.event.release }});
+            console.log(JSON.parse(JSON.stringify(${{ github.event }})));
 #      - name: checkout
 #        uses: actions/checkout@v3
 #        with:
