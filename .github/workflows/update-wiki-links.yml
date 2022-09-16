@@ -14,5 +14,5 @@ jobs:
 #          repository: x-tensive/OPCUA.embedded.wiki
       - name: echo
         run: |
-          echo ${{ github.event.release.ref }}
+          echo ${{ github.ref }}
 
