@@ -26,6 +26,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: printAssets
+        uses: node16
         script: |
           const updateLinks = require("./update-wiki-links");
           updateLinks(null);
