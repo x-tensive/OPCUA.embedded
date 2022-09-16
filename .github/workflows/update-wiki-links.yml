@@ -8,11 +8,11 @@ jobs:
   updateWikiLinks:
     runs-on: ubuntu-latest
     steps:
-      - name: dumpRelease
-        uses: actions/github-script@v6
-        with:
-          script: |
-            console.log(${{ github.event.release.id }});
+#      - name: dumpRelease
+#        uses: actions/github-script@v6
+#        with:
+#          script: |
+#            console.log(${{ github.event.release.id }});
 #      - name: checkout
 #        uses: actions/checkout@v3
 #        with:
@@ -28,9 +28,9 @@ jobs:
         id: assetsQuery
         uses: octokit/request-action@v2.1.0
         with:
-          route: GET /repos/{repository}/releases/{releaseId}/assets
+          route: GET /repos/{repository}/releases/{release}/assets
           repository: ${{ github.repository }}
-          releaseId: ${{ github.event.release.id }}
+          release: ${{ github.event.release.id }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: updateLinks
