@@ -27,7 +27,9 @@ jobs:
         id: assetsQuery
         uses: octokit/request-action@v2.1.0
         with:
-          route: GET /repos/x-tensive/OPCUA.embedded/releases
+          # route: GET /repos/x-tensive/OPCUA.embedded/releases
+          route: GET /repos/{repository}/releases
+          repository: ${{ github.repository }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: printAssets
