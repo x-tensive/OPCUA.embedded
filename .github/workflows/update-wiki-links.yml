@@ -29,6 +29,6 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const updateLinks = require("./update-wiki-links");
+            const updateLinks = require("update-wiki-links");
             updateLinks(null);
 
