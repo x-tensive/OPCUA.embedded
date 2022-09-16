@@ -15,4 +15,6 @@ jobs:
       - name: echo
         run: |
           echo ${{ github.ref }}
+          echo ${{ github.ref_name }}
+          echo ${{ github.ref_type }}
 
