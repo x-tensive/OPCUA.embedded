@@ -22,8 +22,6 @@ https.request(options, function(response) {
     });
     response.on("end", function () {
         var data = JSON.parse(responseBody);
-        console.log(data);
+        updateLinks(data);
     });
 }).end();
-
-//updateLinks(null);
