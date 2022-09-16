@@ -8,7 +8,11 @@ jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v3
-        with:
-          repository: x-tensive/OPCUA.embedded.wiki
+#      - name: checkout
+#        uses: actions/checkout@v3
+#        with:
+#          repository: x-tensive/OPCUA.embedded.wiki
+      - name: echo
+        run: |
+          echo ${{ github.event.release.GITHUB_REF }}
+          echo ${{ GITHUB_REF }}
