@@ -24,6 +24,11 @@ jobs:
 #          echo ${{ github.ref_type }}
       - name: checkout
         uses: actions/checkout@v3
+      - name: checkoutWiki
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository }}.wiki
+          path: "wiki"
       - name: assetsQuery
         id: assetsQuery
         uses: octokit/request-action@v2.1.0
@@ -38,5 +43,5 @@ jobs:
         with:
           script: |
             const updateLinks = require("./.github/workflows/update-wiki-links");
-            updateLinks(${{ steps.assetsQuery.outputs.data }});
+            updateLinks(${{ steps.assetsQuery.outputs.data }}, "wiki");
 
