@@ -22,6 +22,6 @@ https.request(options, function(response) {
     });
     response.on("end", function () {
         var data = JSON.parse(responseBody);
-        updateLinks(data);
+        updateLinks(data, "../../../OPCUA.embedded.wiki");
     });
 }).end();
