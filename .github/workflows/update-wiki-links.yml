@@ -8,20 +8,6 @@ jobs:
   updateWikiLinks:
     runs-on: ubuntu-latest
     steps:
-#      - name: dumpRelease
-#        uses: actions/github-script@v6
-#        with:
-#          script: |
-#            console.log(${{ github.event.release.id }});
-#      - name: checkout
-#        uses: actions/checkout@v3
-#        with:
-#          repository: x-tensive/OPCUA.embedded.wiki
-#      - name: echo
-#        run: |
-#          echo ${{ github.ref }}
-#          echo ${{ github.ref_name }}
-#          echo ${{ github.ref_type }}
       - name: checkout
         uses: actions/checkout@v3
       - name: checkoutWiki
@@ -44,4 +30,8 @@ jobs:
           script: |
             const updateLinks = require("./.github/workflows/update-wiki-links");
             updateLinks(${{ steps.assetsQuery.outputs.data }}, "wiki");
+      - name: commitAndPushWiki
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          repository: "wiki"
 
