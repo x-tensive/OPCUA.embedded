@@ -12,18 +12,10 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    #- name: set git secret for open62541-MI
-    #  run: gh secret set "STACK" --repo "x-tensive/open62541-MI" --app "actions"
-    #  env:
-    #    GH_TOKEN: ${{ secrets.OPEN62541_STACK_KEY }}
     - name: checkout
       uses: actions/checkout@v3
       with:
         repository: "x-tensive/open62541-servers"
         ref: "master"
-        submodules: false
-        ssh-key: ${{ secrets.OPEN62541_SERVERS_KEY }}
-    - name: git update submodules
-      run: git submodule update --init --recursive
-      env:
-        GH_TOKEN: ${{ secrets.OPEN62541_STACK_KEY }}
+        submodules: recursive
+        token: ${{ secrets.BUILDER_TOKEN }}
