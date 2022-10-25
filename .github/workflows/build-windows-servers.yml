@@ -27,11 +27,27 @@ jobs:
       run: msbuild ua_sinumerikServer/ua_sinumerikServer_onlinx.sln -t:rebuild -property:Configuration="Release XPSP3" -property:Platform=x86
     - name: build SINUMERIK S7 ONLINX W2K
       run: msbuild ua_sinumerikServer/ua_sinumerikServer_onlinx.sln -t:rebuild -property:Configuration="Release W2K" -property:Platform=x86
+    - name: build SINUMERIK S7 TCP XPSP3
+      run: msbuild ua_sinumerikServer/ua_sinumerikServer.sln -t:rebuild -property:Configuration="Release XPSP3" -property:Platform=x86
+    - name: build SINUMERIK S7 TCP - x86
+      run: msbuild ua_sinumerikServer/ua_sinumerikServer.sln -t:rebuild -property:Configuration="Release" -property:Platform=x86
+    - name: build SINUMERIK S7 TCP - x64
+      run: msbuild ua_sinumerikServer/ua_sinumerikServer.sln -t:rebuild -property:Configuration="Release" -property:Platform=x64
+    - name: build PRIMA POWER CNDEX
+      run: msbuild ua_cndexServer/ua_cndexServer.sln -t:rebuild -property:Configuration="Release" -property:Platform=x86
 
     - name: installer SINUMERIK S7 ONLINX XPSP3
       run: msbuild installer/engine.all/s7onlinx.xpsp3.msbuild
     - name: installer SINUMERIK S7 ONLINX W2K
       run: msbuild installer/engine.all/s7onlinx.w2k.msbuild
+    - name: installer SINUMERIK S7 TCP XPSP3
+      run: msbuild installer/engine.all/s7tcp.x86.xpsp3.msbuild
+    - name: installer SINUMERIK S7 TCP - x86
+      run: msbuild installer/engine.all/s7tcp.x86.msbuild
+    - name: installer SINUMERIK S7 TCP - x64
+      run: msbuild installer/engine.all/s7tcp.x64.msbuild
+    - name: installer PRIMA POWER CNDEX
+      run: msbuild installer/engine.all/cndex.msbuild
       
     - name: upload SINUMERIK S7 ONLINX XPSP3
       uses: actions/upload-release-asset@v1
@@ -50,4 +66,40 @@ jobs:
         upload_url: ${{ github.event.release.upload_url }} 
         asset_path: ./.out/installer/s7onck.Win32.w2k/dpa.ua.s7onck.install32.exe
         asset_name: dpa.ua.s7onck.install32.w2k_${{ github.event.release.tag_name }}.exe 
+        asset_content_type: application/octet-stream
+    - name: upload SINUMERIK S7 TCP XPSP3
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }} 
+        asset_path: ./.out/installer/s7nck.Win32.xpsp3/dpa.ua.s7nck.install32.exe
+        asset_name: dpa.ua.s7nck.install32.xpsp3_${{ github.event.release.tag_name }}.exe 
+        asset_content_type: application/octet-stream
+    - name: upload SINUMERIK S7 TCP - x86
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }} 
+        asset_path: ./.out/installer/s7nck.Win32/dpa.ua.s7nck.install32.exe
+        asset_name: dpa.ua.s7nck.install32_${{ github.event.release.tag_name }}.exe 
+        asset_content_type: application/octet-stream
+    - name: upload SINUMERIK S7 TCP - x64
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }} 
+        asset_path: ./.out/installer/s7nck.x64/dpa.ua.s7nck.install64.exe
+        asset_name: dpa.ua.s7nck.install64_${{ github.event.release.tag_name }}.exe 
+        asset_content_type: application/octet-stream
+    - name: upload PRIMA POWER CNDEX
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }} 
+        asset_path: ./.out/installer/cndex.Win32/dpa.ua.cndex.install32.exe
+        asset_name: dpa.ua.cndex.install32_${{ github.event.release.tag_name }}.exe 
         asset_content_type: application/octet-stream
