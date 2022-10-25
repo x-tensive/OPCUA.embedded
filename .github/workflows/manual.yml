@@ -22,4 +22,4 @@ jobs:
         ssh-key: ${{ secrets.OPEN62541_SERVERS_KEY }}
         path: "open62541-servers"
     - name: set git secret for submodules
-      run: gh sercret set STACK --body "${{ secret.OPEN62541_STACK_KEY }}"
+      run: gh sercret set STACK --body "${{ secrets.OPEN62541_STACK_KEY }}"
