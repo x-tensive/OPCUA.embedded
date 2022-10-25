@@ -12,10 +12,14 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: checkout
+      uses: actions/checkout@v3
       with:
         repository: "x-tensive/open62541-servers"
         ref: "master"
         # important! for submodules another secret key is used
         submodules: false
         ssh-key: ${{ secrets.OPEN62541_SERVERS_KEY }}
+        path: "open62541-servers"
+    - name: set git secret for submodules
+      run: gh sercret set STACK --body "${{ secret.OPEN62541_STACK_KEY }}"
