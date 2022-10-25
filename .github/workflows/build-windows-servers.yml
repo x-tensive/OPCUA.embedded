@@ -1,4 +1,4 @@
-name: Build windows servers
+name: build windows servers
 
 on:
   workflow_dispatch:
