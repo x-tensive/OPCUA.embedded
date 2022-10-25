@@ -20,5 +20,7 @@ jobs:
         # important! for submodules another secret key is used
         submodules: false
         ssh-key: ${{ secrets.OPEN62541_SERVERS_KEY }}
-    - name: set git secret for submodules
-      run: gh secret set STACK --body "${{ secrets.OPEN62541_STACK_KEY }}"
+    - name: checkout submodules
+      run: git submodule update --init --recursive
+      env:
+        GITHUB_PAT: ${{ secrets.OPEN62541_STACK_KEY }}
