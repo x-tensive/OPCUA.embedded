@@ -35,6 +35,10 @@ jobs:
       run: msbuild ua_sinumerikServer/ua_sinumerikServer.sln -t:rebuild -property:Configuration="Release" -property:Platform=x64
     - name: build PRIMA POWER CNDEX
       run: msbuild ua_cndexServer/ua_cndexServer.sln -t:rebuild -property:Configuration="Release" -property:Platform=x86
+    - name: build FANUC FOCAS - x86
+      run: msbuild ua_focasServer/ua_focasServer.sln -t:rebuild -property:Configuration="Release" -property:Platform=x86
+    - name: build FANUC FOCAS - x64
+      run: msbuild ua_focasServer/ua_focasServer.sln -t:rebuild -property:Configuration="Release" -property:Platform=x64
 
     - name: installer SINUMERIK S7 ONLINX XPSP3
       run: msbuild installer/engine.all/s7onlinx.xpsp3.msbuild
@@ -48,6 +52,10 @@ jobs:
       run: msbuild installer/engine.all/s7tcp.x64.msbuild
     - name: installer PRIMA POWER CNDEX
       run: msbuild installer/engine.all/cndex.msbuild
+    - name: installer FANUC FOCAS - x86
+      run: msbuild installer/engine.all/focas.x86.msbuild
+    - name: installer FANUC FOCAS - x64
+      run: msbuild installer/engine.all/focas.x64.msbuild
       
     - name: upload SINUMERIK S7 ONLINX XPSP3
       uses: actions/upload-release-asset@v1
@@ -102,4 +110,22 @@ jobs:
         upload_url: ${{ github.event.release.upload_url }} 
         asset_path: ./.out/installer/cndex.Win32/dpa.ua.cndex.install32.exe
         asset_name: dpa.ua.cndex.install32_${{ github.event.release.tag_name }}.exe 
+        asset_content_type: application/octet-stream
+    - name: upload FANUC FOCAS - x86
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }} 
+        asset_path: ./.out/installer/focas.Win32/dpa.ua.focas.install32.exe
+        asset_name: dpa.ua.focas.install32_${{ github.event.release.tag_name }}.exe 
+        asset_content_type: application/octet-stream
+    - name: upload FANUC FOCAS - x64
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }} 
+        asset_path: ./.out/installer/focas.x64/dpa.ua.focas.install64.exe
+        asset_name: dpa.ua.focas.install64_${{ github.event.release.tag_name }}.exe 
         asset_content_type: application/octet-stream
