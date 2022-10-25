@@ -32,3 +32,18 @@ jobs:
       run: msbuild installer/engine.all/s7onlinx.xpsp3.msbuild
     - name: installer SINUMERIK S7 ONLINX W2K
       run: msbuild installer/engine.all/s7onlinx.w2k.msbuild
+      
+    - name: upload SINUMERIK S7 ONLINX XPSP3
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ github.event.release.upload_url }} 
+        asset_path: ./.out/installer/s7onck.Win32.xpsp3/dpa.ua.s7onck.install32.exe
+        asset_name: dpa.ua.s7onck.install32.xpsp3_${{ github.event.release.tag_name }}.exe 
+        asset_content_type: application/octet-stream
+    - name: upload SINUMERIK S7 ONLINX W2K
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ github.event.release.upload_url }} 
+        asset_path: ./.out/installer/s7onck.Win32.w2k/dpa.ua.s7onck.install32.exe
+        asset_name: dpa.ua.s7onck.install32_w2k_${{ github.event.release.tag_name }}.exe 
+        asset_content_type: application/octet-stream
