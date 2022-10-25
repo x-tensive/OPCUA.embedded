@@ -13,7 +13,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: set git secret for open62541-MI
-      run: gh secret set "STACK" --repo "x-tensive/open62541-MI" -app "actions"
+      run: gh secret set "STACK" --repo "x-tensive/open62541-MI" --app "actions"
       env:
         GH_TOKEN: ${{ secrets.OPEN62541_STACK_KEY }}
     - name: checkout
