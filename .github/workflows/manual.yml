@@ -15,7 +15,7 @@ jobs:
     - name: set git secret for open62541-MI
       run: gh secret set "STACK" --repo "x-tensive/open62541-MI"
       env:
-        GH_TOKE: ${{ secrets.OPEN62541_STACK_KEY }}
+        GH_TOKEN: ${{ secrets.OPEN62541_STACK_KEY }}
     - name: checkout
       uses: actions/checkout@v3
       with:
