@@ -1,0 +1,17 @@
+name: Build windows servers
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: release version
+        default: "github.event.inputs.name"
+        required: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: 'open62541-servers'
