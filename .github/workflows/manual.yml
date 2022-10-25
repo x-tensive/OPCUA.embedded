@@ -23,3 +23,5 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
     - name: build SINUMERIK S7 ONLINX XPSP3
       run: msbuild ua_sinumerikServer/ua_sinumerikServer_onlinx.sln -t:rebuild -property:Configuration="Release XPSP3" -property:Platform=x86
+    - name: build SINUMERIK S7 ONLINX W2K
+      run: msbuild ua_sinumerikServer/ua_sinumerikServer_onlinx.sln -t:rebuild -property:Configuration="Release W2K" -property:Platform=x86
