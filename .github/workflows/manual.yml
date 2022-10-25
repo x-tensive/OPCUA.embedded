@@ -24,7 +24,6 @@ jobs:
         submodules: false
         ssh-key: ${{ secrets.OPEN62541_SERVERS_KEY }}
     - name: git update submodules
-      run: git submodule update --recursive
-      working-directory: ./OPCUA.embedded
+      run: git submodule update --init --recursive
       env:
         GH_TOKEN: ${{ secrets.OPEN62541_STACK_KEY }}
