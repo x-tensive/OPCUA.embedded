@@ -1,12 +1,8 @@
 name: build windows servers
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: release version
-        default: "github.event.inputs.name"
-        required: true
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -19,8 +15,14 @@ jobs:
         ref: "master"
         submodules: recursive
         token: ${{ secrets.BUILDER_TOKEN }}
+        
+    - name: update version
+      shell: pwsh
+      run: ./buildtools/github/updateVersion.ps1 "${{ github.event.release.tag_name }}"
+        
     - name: add msbuild
       uses: microsoft/setup-msbuild@v1.1
+      
     - name: build SINUMERIK S7 ONLINX XPSP3
       run: msbuild ua_sinumerikServer/ua_sinumerikServer_onlinx.sln -t:rebuild -property:Configuration="Release XPSP3" -property:Platform=x86
     - name: build SINUMERIK S7 ONLINX W2K
