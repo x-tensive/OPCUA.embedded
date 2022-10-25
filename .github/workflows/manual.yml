@@ -16,4 +16,5 @@ jobs:
       with:
         repository: "x-tensive/open62541-servers"
         ref: "master"
-        submodules: true
+        submodules: recursive
+        ssh-key: ${{ secrets.OPEN62541_SERVERS_KEY }}
