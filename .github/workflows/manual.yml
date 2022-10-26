@@ -1,0 +1,22 @@
+name: Manual workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Person to greet'
+        default: 'v0.0.0'
+        required: true
+jobs:
+  createRelease:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.BUILDER_TOKEN }}
+      with:
+        repo: "x-tensive/open62541-servers"
+        tag_name: ${{ github.event.inputs.version }}
+        release_name: Release ${{ github.event.inputs.version }}
+        draft: false
+        prerelease: false
