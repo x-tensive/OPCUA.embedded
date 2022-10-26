@@ -24,11 +24,10 @@ jobs:
       run: ./.buildtools/github/updateVersion.ps1 "v3.4.5"
       
     - name: build
-      working-directory: OPCUA.embedded
       run: |
-        rm -Rf ".out/sinumerik/x64.Release S7TCP" |
-        mkdir -p ".out/sinumerik/x64.Release S7TCP" |
-        cd ".out/sinumerik/x64.Release S7TCP" |
+        rm -Rf "./.out/sinumerik/x64.Release S7TCP" |
+        mkdir -p "./.out/sinumerik/x64.Release S7TCP" |
+        cd "./.out/sinumerik/x64.Release S7TCP" |
         cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=x86_64 ../../../ua_sinumerikServer |
         cmake --build .
       
