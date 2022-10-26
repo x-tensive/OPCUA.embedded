@@ -15,7 +15,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.BUILDER_TOKEN }}
       with:
-        repo: "x-tensive/open62541-servers"
+        repo: "open62541-servers"
+        owner: "x-tensive"
         tag_name: ${{ github.event.inputs.version }}
         release_name: Release ${{ github.event.inputs.version }}
         draft: false
