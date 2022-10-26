@@ -25,10 +25,10 @@ jobs:
       
     - name: build
       run: |
-        rm -Rf "./.out/sinumerik/x64.Release S7TCP" |
-        mkdir -p "./.out/sinumerik/x64.Release S7TCP" |
-        cd "./.out/sinumerik/x64.Release S7TCP" |
-        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=x86_64 ../../../ua_sinumerikServer |
+        rm -Rf "./.out/sinumerik/x64.Release S7TCP"
+        mkdir -p "./.out/sinumerik/x64.Release S7TCP"
+        cd "./.out/sinumerik/x64.Release S7TCP"
+        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=x86_64 ../../../ua_sinumerikServer
         cmake --build .
       
 #    - name: upload FANUC FOCAS - x64
