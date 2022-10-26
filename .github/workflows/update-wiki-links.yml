@@ -28,7 +28,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const updateLinks = require("./.github/workflows/update-wiki-links/update-wiki-links");
+            const updateLinks = require("./.github/workflows/update-wiki-links");
             updateLinks(${{ steps.assetsQuery.outputs.data }}, "wiki");
       - name: commitAndPushWiki
         uses: stefanzweifel/git-auto-commit-action@v4
