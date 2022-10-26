@@ -1,8 +1,10 @@
 name: build linux servers
 
-on:
-  release:
-    types: [created]
+#on:
+#  release:
+#    types: [created]
+on: 
+  workflow_dispatch
 
 jobs:
   build:
