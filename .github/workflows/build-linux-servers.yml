@@ -17,6 +17,19 @@ jobs:
         ref: "master"
         submodules: recursive
         token: ${{ secrets.BUILDER_TOKEN }}
+        
+    - name: update version
+      shell: pwsh
+      # run: ./.buildtools/github/updateVersion.ps1 "${{ github.event.release.tag_name }}"
+      run: ./.buildtools/github/updateVersion.ps1 "v3.4.5"
+      
+    - name: build
+      run: |
+        rm -Rf ".out/sinumerik/x64.Release S7TCP" |
+        mkdir -p ".out/sinumerik/x64.Release S7TCP" |
+        cd ".out/sinumerik/x64.Release S7TCP" |
+        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=x86_64 ../../../ua_sinumerikServer |
+        cmake --build .
       
 #    - name: upload FANUC FOCAS - x64
 #      uses: actions/upload-release-asset@v1
