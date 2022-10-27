@@ -16,20 +16,21 @@ inputs:
     required: true
 runs:
   using: "composite"
-  defaults:
-    run:
-      working-directory: ./.mainrepo
   steps:
     - name: build
+      working-directory: ./.mainrepo
       run: msbuild "${{ inputs.solution }}" -t:rebuild -property:Configuration="${{ inputs.configuration }}" -property:Platform="${{ inputs.platform }}"
+
     - name: installer
+      working-directory: ./.mainrepo
       run: msbuild "${{ inputs.installer }}"
+
     - name: upload
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ inputs.upload_url }}
-        asset_path: ${{ inputs.asset_path }}
+        asset_path: ./.mainrepo/${{ inputs.asset_path }}
         asset_name: ${{ inputs.asset_name }}
         asset_content_type: application/octet-stream
