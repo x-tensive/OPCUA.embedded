@@ -122,6 +122,6 @@ jobs:
         installer: installer/engine.all/focas.x64.msbuild
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./.out/installer/focas.x64/dpa.ua.focas.install64.exe
-        asset_name: dpa.ua.focas.install64_${{ github.event.release.tag_name }}.exee
+        asset_name: dpa.ua.focas.install64_${{ github.event.release.tag_name }}.exe
         token: ${{ secrets.GITHUB_TOKEN }}
 
