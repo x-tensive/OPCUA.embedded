@@ -57,7 +57,7 @@ jobs:
       uses: ./.localrepo/.github/actions/build-single-windows-server
       with:
         solution: ua_sinumerikServer/ua_sinumerikServer.sln
-        configuration: Release XPSP
+        configuration: Release XPSP3
         platform: x86
         installer: installer/engine.all/s7tcp.x86.xpsp3.msbuild
         upload_url: ${{ github.event.release.upload_url }}
