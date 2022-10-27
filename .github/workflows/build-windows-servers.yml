@@ -39,6 +39,7 @@ jobs:
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./.out/installer/s7onck.Win32.xpsp3/dpa.ua.s7onck.install32.exe
         asset_name: dpa.ua.s7onck.install32.xpsp3_${{ github.event.release.tag_name }}.exe
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     # - name: build SINUMERIK S7 ONLINX XPSP3
     #   run: msbuild ua_sinumerikServer/ua_sinumerikServer_onlinx.sln -t:rebuild -property:Configuration="Release XPSP3" -property:Platform=x86
