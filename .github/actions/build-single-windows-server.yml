@@ -1,0 +1,32 @@
+name: "build single windows server"
+inputs:
+  solution:
+    required: true
+  configuration:
+    required: true
+  platform:
+    required: true
+  installer:
+    required: true
+  upload_url:
+    required: true
+  asset_path:
+    required: true
+  asset_name:
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: build
+      run: msbuild "${{ inputs.solution }}" -t:rebuild -property:Configuration="${{ inputs.configuration }}" -property:Platform="${{ inputs.platform }}"
+    - name: installer
+      run: msbuild "${{ inputs.installer }}"
+    - name: upload
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ inputs.upload_url }}
+        asset_path: ${{ inputs.asset_path }}
+        asset_name: ${{ inputs.asset_name }}
+        asset_content_type: application/octet-stream
