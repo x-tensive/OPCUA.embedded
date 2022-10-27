@@ -8,6 +8,10 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+    - name: checkout local
+      uses: actions/checkout@v3
+      with:
+        path: "./.localrepo"
     - name: checkout
       uses: actions/checkout@v3
       with:
@@ -24,7 +28,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
     
     - name: build SINUMERIK S7 ONLINX XPSP3
-      uses: ./.github/actions/build-single-windows-server
+      uses: ./.localrepo/.github/actions/build-single-windows-server
       with:
         solution: ua_sinumerikServer/ua_sinumerikServer_onlinx.sln
         configuration: Release XPSP3
