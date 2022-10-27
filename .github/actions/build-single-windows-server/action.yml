@@ -16,6 +16,9 @@ inputs:
     required: true
 runs:
   using: "composite"
+  defaults:
+    run:
+      working-directory: ./.mainrepo
   steps:
     - name: build
       run: msbuild "${{ inputs.solution }}" -t:rebuild -property:Configuration="${{ inputs.configuration }}" -property:Platform="${{ inputs.platform }}"

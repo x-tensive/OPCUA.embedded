@@ -31,7 +31,6 @@ jobs:
     
     - name: build SINUMERIK S7 ONLINX XPSP3
       uses: ./.localrepo/.github/actions/build-single-windows-server
-      working-directory: "./.mainrepo"
       with:
         solution: ua_sinumerikServer/ua_sinumerikServer_onlinx.sln
         configuration: Release XPSP3
