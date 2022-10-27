@@ -19,9 +19,11 @@ jobs:
         ref: "master"
         submodules: recursive
         token: ${{ secrets.BUILDER_TOKEN }}
+        path: "./.mainrepo"
         
     - name: update version
       shell: pwsh
+      working-directory: "./.mainrepo"
       run: ./.buildtools/github/updateVersion.ps1 "${{ github.event.release.tag_name }}"
         
     - name: add msbuild
@@ -29,6 +31,7 @@ jobs:
     
     - name: build SINUMERIK S7 ONLINX XPSP3
       uses: ./.localrepo/.github/actions/build-single-windows-server
+      working-directory: "./.mainrepo"
       with:
         solution: ua_sinumerikServer/ua_sinumerikServer_onlinx.sln
         configuration: Release XPSP3
