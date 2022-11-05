@@ -23,10 +23,10 @@ jobs:
         token: ${{ secrets.BUILDER_TOKEN }}
         path: "./.mainrepo"
         
-    - name: update version
-      shell: pwsh
-      working-directory: "./.mainrepo"
-      run: ./.buildtools/github/updateVersion.ps1 "${{ github.event.release.tag_name }}"
+#    - name: update version
+#      shell: pwsh
+#      working-directory: "./.mainrepo"
+#      run: ./.buildtools/github/updateVersion.ps1 "${{ github.event.release.tag_name }}"
       
     - name: build MBEDTLS
       working-directory: "./.mainrepo"
