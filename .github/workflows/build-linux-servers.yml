@@ -27,18 +27,24 @@ jobs:
 #      shell: pwsh
 #      working-directory: "./.mainrepo"
 #      run: ./.buildtools/github/updateVersion.ps1 "${{ github.event.release.tag_name }}"
+
+    - name: prepare build directories
+      working-directory: "./.mainrepo"
+      run: |
+        mkdir -p "./mbedtls/build"
+        mkdir -p "./open62541/build"
       
     - name: build MBEDTLS
-      working-directory: "./.mainrepo"
+      working-directory: "./.mainrepo/mbedtls/build"
       run: |
-        cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTING=OFF -DENABLE_PROGRAMS=OFF ./mbedtls/
-        ls
+        cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTING=OFF -DENABLE_PROGRAMS=OFF ..
+        cmake --build
     
     - name: build OPEN62541
-      working-directory: "./.mainrepo"
+      working-directory: "./.mainrepo/open62541/build"
       run: |
-        cmake -DCMAKE_BUILD_TYPE=Release -DUA_LOGLEVEL=600 -DUA_NAMESPACE_ZERO=REDUCED -DUA_ENABLE_ENCRYPTION=ON -DMBEDTLS_INCLUDE_DIRS="./mbedtls/include/" -DMBEDTLS_LIBRARY="./libs/debian/" -DMBEDX509_LIBRARY="./libs/debian/" -DMBEDCRYPTO_LIBRARY="./libs/debian/" ./open62541/
-        ls
+        cmake -DCMAKE_BUILD_TYPE=Release -DUA_LOGLEVEL=600 -DUA_NAMESPACE_ZERO=REDUCED -DUA_ENABLE_ENCRYPTION=ON -DMBEDTLS_INCLUDE_DIRS="./mbedtls/include/" -DMBEDTLS_LIBRARY="./libs/debian/" -DMBEDX509_LIBRARY="./libs/debian/" -DMBEDCRYPTO_LIBRARY="./libs/debian/" ..
+        cmake --build
       
 #    - name: build
 #      run: |
