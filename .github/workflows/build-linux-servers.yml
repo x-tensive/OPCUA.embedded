@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: checkout local
+      uses: actions/checkout@v3
+      with:
+        path: "./.localrepo"
     - name: checkout
       uses: actions/checkout@v3
       with:
@@ -17,19 +21,32 @@ jobs:
         ref: "master"
         submodules: recursive
         token: ${{ secrets.BUILDER_TOKEN }}
+        path: "./.mainrepo"
         
     - name: update version
       shell: pwsh
-      # run: ./.buildtools/github/updateVersion.ps1 "${{ github.event.release.tag_name }}"
-      run: ./.buildtools/github/updateVersion.ps1 "v3.4.5"
+      working-directory: "./.mainrepo"
+      run: ./.buildtools/github/updateVersion.ps1 "${{ github.event.release.tag_name }}"
       
-    - name: build
+    - name: build MBEDTLS
+      working-directory: "./.mainrepo"
       run: |
-        rm -Rf "./.out/sinumerik/x64.Release S7TCP"
-        mkdir -p "./.out/sinumerik/x64.Release S7TCP"
-        cd "./.out/sinumerik/x64.Release S7TCP"
-        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=x86_64 ../../../ua_sinumerikServer
-        cmake --build .
+        cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTING=OFF -DENABLE_PROGRAMS=OFF ./mbedtls/
+        ls
+    
+    - name: build OPEN62541
+      working-directory: "./.mainrepo"
+      run: |
+        cmake -DCMAKE_BUILD_TYPE=Release -DUA_LOGLEVEL=600 -DUA_NAMESPACE_ZERO=REDUCED -DUA_ENABLE_ENCRYPTION=ON -DMBEDTLS_INCLUDE_DIRS="./mbedtls/include/" -DMBEDTLS_LIBRARY="./libs/debian/" -DMBEDX509_LIBRARY="./libs/debian/" -DMBEDCRYPTO_LIBRARY="./libs/debian/" ./open62541/
+        ls
+      
+#    - name: build
+#      run: |
+#        rm -Rf "./.out/sinumerik/x64.Release S7TCP"
+#        mkdir -p "./.out/sinumerik/x64.Release S7TCP"
+#        cd "./.out/sinumerik/x64.Release S7TCP"
+#        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=x86_64 ../../../ua_sinumerikServer
+#        cmake --build .
       
 #    - name: upload FANUC FOCAS - x64
 #      uses: actions/upload-release-asset@v1
