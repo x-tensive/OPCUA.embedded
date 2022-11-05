@@ -38,13 +38,13 @@ jobs:
       working-directory: "./.mainrepo/mbedtls/build"
       run: |
         cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTING=OFF -DENABLE_PROGRAMS=OFF ..
-        cmake --build
+        cmake --build .
     
     - name: build OPEN62541
       working-directory: "./.mainrepo/open62541/build"
       run: |
         cmake -DCMAKE_BUILD_TYPE=Release -DUA_LOGLEVEL=600 -DUA_NAMESPACE_ZERO=REDUCED -DUA_ENABLE_ENCRYPTION=ON -DMBEDTLS_INCLUDE_DIRS="./mbedtls/include/" -DMBEDTLS_LIBRARY="./libs/debian/" -DMBEDX509_LIBRARY="./libs/debian/" -DMBEDCRYPTO_LIBRARY="./libs/debian/" ..
-        cmake --build
+        cmake --build .
       
 #    - name: build
 #      run: |
