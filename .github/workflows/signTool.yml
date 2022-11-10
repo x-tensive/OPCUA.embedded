@@ -1,4 +1,4 @@
-name: build dpa.opcua.rs
+name: code sign test
 
 on:
   workflow_dispatch
