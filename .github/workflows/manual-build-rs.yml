@@ -11,9 +11,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: test zip
-      run: zip
-
     - name: checkout local
       uses: actions/checkout@v3
       with:
@@ -41,3 +38,6 @@ jobs:
     
     - name: build dpa.opcua.rs
       run: dotnet build --configuration Release ./.mainrepo/tools/rs/rs.sln
+    
+    - name: zip assets
+      run: zip -r dpa.opcua_${{ inputs.version }}.zip ./.mainrepo/tools/rs/bin/Release/net6.0
