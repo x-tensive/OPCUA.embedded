@@ -1,0 +1,38 @@
+name: build windows servers
+
+on: 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "version"
+        required: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: checkout local
+      uses: actions/checkout@v3
+      with:
+        path: "./.localrepo"
+    - name: checkout
+      uses: actions/checkout@v3
+      with:
+        repository: "x-tensive/open62541-servers"
+        ref: "master"
+        submodules: false
+        token: ${{ secrets.BUILDER_TOKEN }}
+        path: "./.mainrepo"
+        
+    # - name: update version
+    #   shell: pwsh
+    #   working-directory: "./.mainrepo"
+    #   run: ./.buildtools/github/updateVersion.ps1 "${{ github.event.release.tag_name }}"
+
+    - name: add dotnet
+      uses: actions/setup-dotnet@v3
+        with:
+        dotnet-version: '6.0.x'
+    
+    - name: build dpa.opcua.rs
+      run: dotnet build --configuration Release ./.mainrepo/tools/rs/rs.sln
