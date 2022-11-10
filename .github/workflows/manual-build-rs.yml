@@ -24,10 +24,12 @@ jobs:
         token: ${{ secrets.BUILDER_TOKEN }}
         path: "./.mainrepo"
         
-    # - name: update version
-    #   shell: pwsh
-    #   working-directory: "./.mainrepo"
-    #   run: ./.buildtools/github/updateVersion.ps1 "${{ github.event.release.tag_name }}"
+      - name: update version
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const updateVersion = require("./.github/workflows/scripts/updateCsprojVersion");
+            updateVersion("./.mainrepo/tools/rs/rs.csproj", "{{ github.event.release.tag_name }}");
 
     - name: add dotnet
       uses: actions/setup-dotnet@v3
