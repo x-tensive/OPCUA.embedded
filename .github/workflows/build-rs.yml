@@ -1,11 +1,8 @@
 name: build dpa.opcua.rs
 
-on: 
-  workflow_dispatch:
-    inputs:
-      version:
-        description: "version"
-        required: true
+on:
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -29,7 +26,7 @@ jobs:
       with:
         script: |
           const updateVersion = require("./.localrepo/.github/scripts/updateCsprojVersion");
-          updateVersion("./.mainrepo/tools/rs/rs.csproj", "${{ inputs.version }}");
+          updateVersion("./.mainrepo/tools/rs/rs.csproj", "${{ github.event.release.tag_name }}");
 
     - name: add dotnet
       uses: actions/setup-dotnet@v3
@@ -40,14 +37,14 @@ jobs:
       run: dotnet build --configuration Release ./.mainrepo/tools/rs/rs.sln
     
     - name: zip assets
-      run: zip -r dpa.opcua_${{ inputs.version }}.zip ./.mainrepo/tools/rs/bin/Release/net6.0
+      run: zip -r dpa.opcua_${{ github.event.release.tag_name }}.zip ./.mainrepo/tools/rs/bin/Release/net6.0
     
     - name: upload
       uses: actions/upload-release-asset@v1
       with:
-        upload_url: https://uploads.github.com/repos/x-tensive/OPCUA.embedded/releases/81196678/assets{?name,label}
-        asset_path: dpa.opcua_${{ inputs.version }}.zip
-        asset_name: dpa.opcua_${{ inputs.version }}.zip
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: dpa.opcua_${{ github.event.release.tag_name }}.zip
+        asset_name: dpa.opcua_${{ github.event.release.tag_name }}.zip
         asset_content_type: application/octet-stream
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
