@@ -29,7 +29,7 @@ jobs:
       with:
         script: |
           const updateVersion = require("./.github/workflows/scripts/updateCsprojVersion");
-          updateVersion("./.mainrepo/tools/rs/rs.csproj", "${{ inputs.version }}"");
+          updateVersion("./.mainrepo/tools/rs/rs.csproj", "${{ inputs.version }}");
 
     - name: add dotnet
       uses: actions/setup-dotnet@v3
