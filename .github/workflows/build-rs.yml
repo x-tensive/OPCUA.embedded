@@ -37,7 +37,9 @@ jobs:
       run: dotnet build --configuration Release ./.mainrepo/tools/rs/rs.sln
     
     - name: zip assets
-      run: zip -r dpa.opcua_${{ github.event.release.tag_name }}.zip ./.mainrepo/tools/rs/bin/Release/net6.0
+      run: |
+        cd  ./.mainrepo/tools/rs/bin/Release/net6.0/
+        zip -r ../../../../../../dpa.opcua_${{ github.event.release.tag_name }}.zip ./
     
     - name: upload
       uses: actions/upload-release-asset@v1
