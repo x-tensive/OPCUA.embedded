@@ -24,12 +24,12 @@ jobs:
         token: ${{ secrets.BUILDER_TOKEN }}
         path: "./.mainrepo"
         
-      - name: update version
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const updateVersion = require("./.github/workflows/scripts/updateCsprojVersion");
-            updateVersion("./.mainrepo/tools/rs/rs.csproj", ${{ inputs.version }});
+    - name: update version
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const updateVersion = require("./.github/workflows/scripts/updateCsprojVersion");
+          updateVersion("./.mainrepo/tools/rs/rs.csproj", ${{ inputs.version }});
 
     - name: add dotnet
       uses: actions/setup-dotnet@v3
