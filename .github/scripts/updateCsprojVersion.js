@@ -12,6 +12,8 @@ function update(csprojFileName, version)
         data = data.replace(/<AssemblyVersion>\d\.\d\.\d\.\d<\/AssemblyVersion>/, "<AssemblyVersion>" + cVer + ".0</AssemblyVersion>");
         data = data.replace(/<FileVersion>\d\.\d\.\d\.\d<\/FileVersion>/, "<FileVersion>" + cVer + ".0</FileVersion>");
 
+        console.log(data);
+
         fs.writeFile(csprojFileName, data, { encoding: "utf8" }, () => {});
     });
 }
