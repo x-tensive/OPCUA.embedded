@@ -28,7 +28,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const updateVersion = require("./.github/workflows/scripts/updateCsprojVersion");
+          const updateVersion = require("./.localrepo/.github/workflows/scripts/updateCsprojVersion");
           updateVersion("./.mainrepo/tools/rs/rs.csproj", "${{ inputs.version }}");
 
     - name: add dotnet
