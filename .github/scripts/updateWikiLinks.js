@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
-const assetRegex = /^(?<prefix>.+)(?<version>_\d*\.\d*\.\d*\.\d*)(?<suffix>.+)$/;
+const assetRegex = /^(?<prefix>.+)(?<version>_v\d*\.\d*\.\d*\.\d*)(?<suffix>.+)$/;
 
 function checkAssetName(assetName)
 {
@@ -24,7 +24,7 @@ function updateLinksInFile(fileName, updateActions)
     fs.readFile(fileName, { encoding: "utf8" }, (err, data) => {
         updateActions.forEach(action => {
             var actionRegex = new RegExp(
-                action.prefix.replaceAll(".", "\\.") + "_\\d*\\.\\d*\\.\\d*\\.\\d*" + action.suffix.replaceAll(".", "\\."),
+                action.prefix.replaceAll(".", "\\.") + "_v\\d*\\.\\d*\\.\\d*\\.\\d*" + action.suffix.replaceAll(".", "\\."),
                 "g");
             data = data.replaceAll(actionRegex, action.targetName);
         });
@@ -42,7 +42,7 @@ function updateLinks(assets, wikiPath)
 
     console.log("assets: " + updateActions.length);
     updateActions.forEach(action => {
-        console.log(action.prefix + "X.X.X.X" + action.suffix + " -> " + action.targetName);
+        console.log(action.prefix + "_vX.X.X.X" + action.suffix + " -> " + action.targetName);
     });
 
     console.log("files:");
