@@ -1,4 +1,4 @@
-name: build windows servers
+name: build dpa.opcua.rs
 
 on: 
   workflow_dispatch:
