@@ -41,3 +41,13 @@ jobs:
     
     - name: zip assets
       run: zip -r dpa.opcua_${{ inputs.version }}.zip ./.mainrepo/tools/rs/bin/Release/net6.0
+    
+    - name: upload
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: https://uploads.github.com/repos/x-tensive/OPCUA.embedded/releases/81196678/assets{?name,label}
+        asset_path: dpa.opcua_${{ inputs.version }}.zip
+        asset_name: dpa.opcua_${{ inputs.version }}.zip
+        asset_content_type: application/octet-stream
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
