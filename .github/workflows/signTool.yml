@@ -15,4 +15,4 @@ jobs:
         echo ::set-output name=signtool::"$($list[-1].FullName)"
     
     - name: output
-      run: echo ${{ st.outputs.signtool }}
+      run: echo ${{ steps.st.outputs.signtool }}
