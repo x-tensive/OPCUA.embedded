@@ -2,6 +2,10 @@ name: "sign moduler"
 inputs:
   path:
     required: true
+  pfx:
+    required: true
+  password:
+    required: true
 
 runs:
   using: "composite"
@@ -16,13 +20,13 @@ runs:
     - name: create PFX file
       shell: pwsh
       run: |
-        $pfxData = [System.Convert]::FromBase64String("${{ secrets.CODESIGN_CERT_BASE64 }}");
+        $pfxData = [System.Convert]::FromBase64String("${{ inputs.pfx }}");
         $pfxData | Set-Content -Path ".pfx" -AsByteStream
     
     - name: sign
       run: |
         echo 
-        "${{ steps.st.outputs.SIGNTOOL }}" sign /f ".pfx" /p "${{ secrets.CODESIGN_CERT_PWD }}" /fd SHA256 "${{ inputs.path }}""
+        "${{ steps.st.outputs.SIGNTOOL }}" sign /f ".pfx" /p "${{ inputs.password }}" /fd SHA256 "${{ inputs.path }}""
     
     - name: delete PFX file
       run: del ".pfx"
