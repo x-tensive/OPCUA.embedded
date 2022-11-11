@@ -1,4 +1,4 @@
-name: "build single windows server"
+name: build single windows server
 inputs:
   solution:
     required: true

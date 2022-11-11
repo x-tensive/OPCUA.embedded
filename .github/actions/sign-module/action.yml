@@ -1,4 +1,4 @@
-name: "sign moduler"
+name: sign module
 inputs:
   path:
     required: true
@@ -6,7 +6,6 @@ inputs:
     required: true
   password:
     required: true
-
 runs:
   using: "composite"
   steps:
@@ -16,17 +15,17 @@ runs:
       run: |
         $list = Get-ChildItem -Path "C:/Program Files (x86)/Windows Kits/10/bin/*/x64/signtool.exe"
         echo "::set-output name=SIGNTOOL::$($list[-1].FullName)"
-    
+
     - name: create PFX file
       shell: pwsh
       run: |
         $pfxData = [System.Convert]::FromBase64String("${{ inputs.pfx }}");
         $pfxData | Set-Content -Path ".pfx" -AsByteStream
-    
+
     - name: sign
       shell: pwsh
       run: "${{ steps.st.outputs.SIGNTOOL }}" sign /f ".pfx" /p "${{ inputs.password }}" /fd SHA256 "${{ inputs.path }}""
-    
+
     - name: delete PFX file
       shell: pwsh
       run: del ".pfx"
