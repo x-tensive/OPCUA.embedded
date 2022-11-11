@@ -18,9 +18,10 @@ jobs:
       shell: pwsh
       run: |
         $pfxData = [System.Convert]::FromBase64String("${{ secrets.CODESIGN_CERT_BASE64 }}");
-        $pfxData | Set-Content -Path ".pfx" -Encoding byte
+        $pfxData | Set-Content -Path ".pfx" -AsByteStream
     
     - name: output
       run: |
         ls
+        type ".pfx"
         echo ${{ steps.st.outputs.signtool }}
