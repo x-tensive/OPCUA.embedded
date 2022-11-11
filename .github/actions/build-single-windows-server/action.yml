@@ -16,6 +16,10 @@ inputs:
     required: true
   token:
     required: true
+  pfx:
+    required: true
+  password:
+    required: true
 runs:
   using: "composite"
   steps:
@@ -28,6 +32,13 @@ runs:
       shell: pwsh
       working-directory: ./.mainrepo
       run: msbuild "${{ inputs.installer }}"
+
+    - name: sign installer
+      uses: ./.localrepo/.github/actions/sign-module
+      with:
+        path: '"./.mainrepo/${{ inputs.asset_path }}"'
+        pfx: ${{ inputs.pfx }}
+        password: ${{ inputs.password }}
 
     - name: upload
       uses: actions/upload-release-asset@v1
