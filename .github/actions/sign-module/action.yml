@@ -1,0 +1,28 @@
+name: "sign moduler"
+inputs:
+  path:
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: find signtool
+      id: st
+      shell: pwsh
+      run: |
+        $list = Get-ChildItem -Path "C:/Program Files (x86)/Windows Kits/10/bin/*/x64/signtool.exe"
+        echo "::set-output name=SIGNTOOL::$($list[-1].FullName)"
+    
+    - name: create PFX file
+      shell: pwsh
+      run: |
+        $pfxData = [System.Convert]::FromBase64String("${{ secrets.CODESIGN_CERT_BASE64 }}");
+        $pfxData | Set-Content -Path ".pfx" -AsByteStream
+    
+    - name: sign
+      run: |
+        echo 
+        "${{ steps.st.outputs.SIGNTOOL }}" sign /f ".pfx" /p "${{ secrets.CODESIGN_CERT_PWD }}" /fd SHA256 "${{ inputs.path }}""
+    
+    - name: delete PFX file
+      run: del ".pfx"
