@@ -24,7 +24,7 @@ runs:
 
     - name: sign
       shell: pwsh
-      run: "${{ steps.st.outputs.SIGNTOOL }}" sign /f ".pfx" /p "${{ inputs.password }}" /fd SHA256 "${{ inputs.path }}"
+      run: '"${{ steps.st.outputs.SIGNTOOL }}" sign /f ".pfx" /p "${{ inputs.password }}" /fd SHA256 "${{ inputs.path }}"'
 
     - name: delete PFX file
       shell: pwsh
