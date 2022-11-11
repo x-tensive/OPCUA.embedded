@@ -35,6 +35,16 @@ jobs:
     
     - name: build dpa.opcua.rs
       run: dotnet build --configuration Release ./.mainrepo/tools/rs/rs.sln
+
+    - name: sign dpa.opcua.rs.dll
+      uses: ./.localrepo/.github/actions/sign-module
+      with:
+        path: ./.mainrepo/tools/rs/bin/Release/net6.0/dpa.opcua.rs.dll
+    
+    - name: sign dpa.opcua.rs.exe
+      uses: ./.localrepo/.github/actions/sign-module
+      with:
+        path: ./.mainrepo/tools/rs/bin/Release/net6.0/dpa.opcua.rs.exe
     
     - name: zip assets
       shell: pwsh
