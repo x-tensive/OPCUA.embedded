@@ -23,9 +23,9 @@ runs:
         $pfxData | Set-Content -Path ".pfx" -AsByteStream
 
     - name: sign
-      shell: pwsh
-      run: '"${{ steps.st.outputs.SIGNTOOL }}" sign /f ".pfx" /p "${{ inputs.password }}" /fd SHA256 "${{ inputs.path }}"'
+      shell: cmd
+      run: "${{ steps.st.outputs.SIGNTOOL }}" sign /f ".pfx" /p "${{ inputs.password }}" /fd SHA256 "${{ inputs.path }}"
 
     - name: delete PFX file
-      shell: pwsh
+      shell: cmd
       run: del ".pfx"
