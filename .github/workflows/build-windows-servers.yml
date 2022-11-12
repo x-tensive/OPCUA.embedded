@@ -35,6 +35,7 @@ jobs:
         solution: ua_sinumerikServer/ua_sinumerikServer_onlinx.sln
         configuration: Release XPSP3
         platform: x86
+        out: SINUMERIK.S7ONLINX/Release.Win32.xpsp3
         installer: installer/engine.all/s7onlinx.xpsp3.msbuild
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./.out/installer/s7onck.Win32.xpsp3/dpa.ua.s7onck.install32.exe
@@ -49,6 +50,7 @@ jobs:
         solution: ua_sinumerikServer/ua_sinumerikServer_onlinx.sln
         configuration: Release W2K
         platform: x86
+        out: SINUMERIK.S7ONLINX/Release.Win32.w2k
         installer: installer/engine.all/s7onlinx.w2k.msbuild
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./.out/installer/s7onck.Win32.w2k/dpa.ua.s7onck.install32.exe
@@ -63,6 +65,7 @@ jobs:
         solution: ua_sinumerikServer/ua_sinumerikServer.sln
         configuration: Release XPSP3
         platform: x86
+        out: SINUMERIK.S7TCP/Release.Win32.xpsp3
         installer: installer/engine.all/s7tcp.x86.xpsp3.msbuild
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./.out/installer/s7nck.Win32.xpsp3/dpa.ua.s7nck.install32.exe
@@ -77,6 +80,7 @@ jobs:
         solution: ua_sinumerikServer/ua_sinumerikServer.sln
         configuration: Release
         platform: x86
+        out: SINUMERIK.S7TCP/Release.Win32
         installer: installer/engine.all/s7tcp.x86.msbuild
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./.out/installer/s7nck.Win32/dpa.ua.s7nck.install32.exe
@@ -91,6 +95,7 @@ jobs:
         solution: ua_sinumerikServer/ua_sinumerikServer.sln
         configuration: Release
         platform: x64
+        out: SINUMERIK.S7TCP/Release.x64
         installer: installer/engine.all/s7tcp.x64.msbuild
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./.out/installer/s7nck.x64/dpa.ua.s7nck.install64.exe
@@ -105,6 +110,7 @@ jobs:
         solution: ua_cndexServer/ua_cndexServer.sln
         configuration: Release
         platform: x86
+        out: CNDEX/Release.Win32
         installer: installer/engine.all/cndex.msbuild
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./.out/installer/cndex.Win32/dpa.ua.cndex.install32.exe
@@ -119,6 +125,7 @@ jobs:
         solution: ua_focasServer/ua_focasServer.sln
         configuration: Release
         platform: x86
+        out: FOCAS/Release.Win32
         installer: installer/engine.all/focas.x86.msbuild
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./.out/installer/focas.Win32/dpa.ua.focas.install32.exe
@@ -133,6 +140,7 @@ jobs:
         solution: ua_focasServer/ua_focasServer.sln
         configuration: Release
         platform: x64
+        out: FOCAS/Release.x64
         installer: installer/engine.all/focas.x64.msbuild
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./.out/installer/focas.x64/dpa.ua.focas.install64.exe

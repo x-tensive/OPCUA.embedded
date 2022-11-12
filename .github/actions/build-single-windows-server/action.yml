@@ -6,6 +6,8 @@ inputs:
     required: true
   platform:
     required: true
+  out:
+    required: true
   installer:
     required: true
   upload_url:
@@ -27,6 +29,13 @@ runs:
       shell: pwsh
       working-directory: ./.mainrepo
       run: msbuild "${{ inputs.solution }}" -t:rebuild -property:Configuration="${{ inputs.configuration }}" -property:Platform="${{ inputs.platform }}"
+
+    - name: sign binaries
+      uses: ./.localrepo/.github/actions/sign-module
+      with:
+        path: '"./.mainrepo/.out/${{ inputs.out }}/dpa.*.exe"'
+        pfx: ${{ inputs.pfx }}
+        password: ${{ inputs.password }}
 
     - name: installer
       shell: pwsh
