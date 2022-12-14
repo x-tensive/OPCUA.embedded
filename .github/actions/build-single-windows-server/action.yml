@@ -1,13 +1,5 @@
 name: build single windows server
 inputs:
-  solution:
-    required: true
-  configuration:
-    required: true
-  platform:
-    required: true
-  out:
-    required: true
   installer:
     required: true
   upload_url:
@@ -25,29 +17,10 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: build
-      shell: pwsh
-      working-directory: ./.mainrepo
-      run: msbuild "${{ inputs.solution }}" -t:rebuild -property:Configuration="${{ inputs.configuration }}" -property:Platform="${{ inputs.platform }}"
-
-    - name: sign binaries
-      uses: ./.localrepo/.github/actions/sign-module
-      with:
-        path: '"./.mainrepo/.out/${{ inputs.out }}/dpa.*.exe"'
-        pfx: ${{ inputs.pfx }}
-        password: ${{ inputs.password }}
-
     - name: installer
       shell: pwsh
       working-directory: ./.mainrepo
-      run: msbuild "${{ inputs.installer }}"
-
-    - name: sign installer
-      uses: ./.localrepo/.github/actions/sign-module
-      with:
-        path: '"./.mainrepo/${{ inputs.asset_path }}"'
-        pfx: ${{ inputs.pfx }}
-        password: ${{ inputs.password }}
+      run: msbuild "./installer/engine.all/${{ inputs.installer }}" /p:PFX=${{ inputs.pfx }} /p:PWD=${{ inputs.password }}
 
     - name: upload
       uses: actions/upload-release-asset@v1
