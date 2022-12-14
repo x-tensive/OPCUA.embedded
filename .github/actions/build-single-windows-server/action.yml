@@ -20,7 +20,7 @@ runs:
     - name: installer
       shell: pwsh
       working-directory: ./.mainrepo
-      run: msbuild "./installer/engine.all/${{ inputs.installer }}" /p:PFX=${{ inputs.pfx }} /p:PWD=${{ inputs.password }}
+      run: msbuild "./installer/engine.all/${{ inputs.installer }}" "/p:PFX=${{ inputs.pfx }}" "/p:PWD=${{ inputs.password }}"
 
     - name: upload
       uses: actions/upload-release-asset@v1
