@@ -36,12 +36,12 @@ jobs:
     - name: build dpa.opcua.rs
       run: dotnet build --configuration Release ./.mainrepo/tools/rs/rs.sln
 
-    - name: sign dpa.opcua.rs
-      uses: ./.localrepo/.github/actions/sign-module
-      with:
-        path: '"./.mainrepo/tools/rs/bin/Release/net6.0/dpa.opcua.rs.dll" "./.mainrepo/tools/rs/bin/Release/net6.0/dpa.opcua.rs.exe"'
-        pfx: ${{ secrets.CODESIGN_CERT_BASE64 }}
-        password: ${{ secrets.CODESIGN_CERT_PWD }}
+    # - name: sign dpa.opcua.rs
+    #   uses: ./.localrepo/.github/actions/sign-module
+    #   with:
+    #     path: '"./.mainrepo/tools/rs/bin/Release/net6.0/dpa.opcua.rs.dll" "./.mainrepo/tools/rs/bin/Release/net6.0/dpa.opcua.rs.exe"'
+    #     pfx: ${{ secrets.CODESIGN_CERT_BASE64 }}
+    #     password: ${{ secrets.CODESIGN_CERT_PWD }}
     
     - name: zip assets
       shell: pwsh
