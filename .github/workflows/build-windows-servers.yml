@@ -117,3 +117,47 @@ jobs:
         pfx: ${{ secrets.CODESIGN_CERT_BASE64 }}
         password: ${{ secrets.CODESIGN_CERT_PWD }}
 
+    - name: build SYNTEC 1v2
+      uses: ./.localrepo/.github/actions/build-single-windows-server
+      with:
+        installer: syntec1v2.msbuild
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./.out/installer/syntec1v2.Win32/dpa.ua.syntec1v2.install32.exe
+        asset_name: dpa.ua.syntec1v2.install32_${{ github.event.release.tag_name }}.exe
+        token: ${{ secrets.GITHUB_TOKEN }}
+        pfx: ${{ secrets.CODESIGN_CERT_BASE64 }}
+        password: ${{ secrets.CODESIGN_CERT_PWD }}
+    
+    - name: build SYNTEC 1v3
+      uses: ./.localrepo/.github/actions/build-single-windows-server
+      with:
+        installer: syntec1v3.msbuild
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./.out/installer/syntec1v3.Win32/dpa.ua.syntec1v3.install32.exe
+        asset_name: dpa.ua.syntec1v3.install32_${{ github.event.release.tag_name }}.exe
+        token: ${{ secrets.GITHUB_TOKEN }}
+        pfx: ${{ secrets.CODESIGN_CERT_BASE64 }}
+        password: ${{ secrets.CODESIGN_CERT_PWD }}
+
+    - name: build SYNTEC 1v4
+      uses: ./.localrepo/.github/actions/build-single-windows-server
+      with:
+        installer: syntec1v4.msbuild
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./.out/installer/syntec1v4.Win32/dpa.ua.syntec1v4.install32.exe
+        asset_name: dpa.ua.syntec1v4.install32_${{ github.event.release.tag_name }}.exe
+        token: ${{ secrets.GITHUB_TOKEN }}
+        pfx: ${{ secrets.CODESIGN_CERT_BASE64 }}
+        password: ${{ secrets.CODESIGN_CERT_PWD }}
+    
+    - name: build SYNTEC 10
+      uses: ./.localrepo/.github/actions/build-single-windows-server
+      with:
+        installer: syntec10.msbuild
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./.out/installer/syntec10.Win32/dpa.ua.syntec10.install32.exe
+        asset_name: dpa.ua.syntec10.install32_${{ github.event.release.tag_name }}.exe
+        token: ${{ secrets.GITHUB_TOKEN }}
+        pfx: ${{ secrets.CODESIGN_CERT_BASE64 }}
+        password: ${{ secrets.CODESIGN_CERT_PWD }}
+
