@@ -1,8 +1,9 @@
 name: update wiki links
 on:
   workflow_dispatch:
-    version:
-      required: true
+    inputs:
+      version:
+        required: true
 
 jobs:
   updateWikiLinks:
