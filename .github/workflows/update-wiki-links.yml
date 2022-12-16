@@ -22,7 +22,7 @@ jobs:
         with:
           script: |
             const updateLinks = require("./.github/scripts/updateWikiLinks");
-            updateLinks(${{ github.event.inputs.version }}, "wiki");
+            updateLinks("${{ github.event.inputs.version }}", "wiki");
             
       - name: commitAndPushWiki
         uses: stefanzweifel/git-auto-commit-action@v4
