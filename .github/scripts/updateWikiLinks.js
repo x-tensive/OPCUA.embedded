@@ -27,6 +27,4 @@ function updateLinks(version, wikiPath)
     });
 }
 
-//module.exports = updateLinks;
-
-updateLinks("v3.4.5", "c:/work/repo/OPCUA.embedded.wiki")
+module.exports = updateLinks;
