@@ -1,59 +1,32 @@
 const path = require("path");
 const fs = require("fs");
 
-const assetRegex = /^(?<prefix>.+)(?<version>_v\d*\.\d*\.\d*\.\d*)(?<suffix>.+)$/;
+const v1Regex = new RegExp("_v\\d*\\.\\d*\\.\\d*\\.exe", "g");
+const v2Regex = new RegExp("/v\\d*\\.\\d*\\.\\d*/", "g");
 
-function checkAssetName(assetName)
-{
-    return assetRegex.test(assetName);
-}
-
-function createUpdateAction(assetName)
-{
-    var split = assetName.match(assetRegex);
-    return {
-        prefix: split.groups.prefix,
-        suffix: split.groups.suffix,
-        targetName: assetName
-    }
-}
-
-function updateLinksInFile(fileName, updateActions)
+function updateLinksInFile(fileName, version)
 {
     console.log(fileName);
     fs.readFile(fileName, { encoding: "utf8" }, (err, data) => {
-        updateActions.forEach(action => {
-            var actionRegex = new RegExp(
-                action.prefix.replaceAll(".", "\\.") + "_v\\d*\\.\\d*\\.\\d*\\.\\d*" + action.suffix.replaceAll(".", "\\."),
-                "g");
-            data = data.replaceAll(actionRegex, action.targetName);
-        });
+        data = data.replaceAll(v1Regex, `_${version}.exe`);
+        data = data.replaceAll(v2Regex, `/${version}/`);
         fs.writeFile(fileName, data, { encoding: "utf8" }, () => {});
     });
 }
 
-function updateLinks(assets, wikiPath)
+function updateLinks(version, wikiPath)
 {
-    var updateActions = [];
-    assets.forEach(asset => {
-        if (checkAssetName(asset.name))
-            updateActions.push(createUpdateAction(asset.name));
-    });
-
-    console.log("assets: " + updateActions.length);
-    updateActions.forEach(action => {
-        console.log(action.prefix + "_vX.X.X.X" + action.suffix + " -> " + action.targetName);
-    });
-
     console.log("files:");
     fs.readdir(wikiPath, null, (err, fileNames) => {
         fileNames.forEach(fileName => {
             if (!fileName.toLowerCase().endsWith(".md"))
                 return;
             var fullFileName = path.join(wikiPath, fileName);
-            updateLinksInFile(fullFileName, updateActions);
+            updateLinksInFile(fullFileName, version);
         });
     });
 }
 
-module.exports = updateLinks;
+//module.exports = updateLinks;
+
+updateLinks("v3.4.5", "c:/work/repo/OPCUA.embedded.wiki")

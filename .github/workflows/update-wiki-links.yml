@@ -1,8 +1,8 @@
 name: update wiki links
-
 on:
-  release:
-    types: [ "released" ]
+  workflow_dispatch:
+    version:
+      required: true
 
 jobs:
   updateWikiLinks:
@@ -15,21 +15,14 @@ jobs:
         with:
           repository: ${{ github.repository }}.wiki
           path: "wiki"
-      - name: assetsQuery
-        id: assetsQuery
-        uses: octokit/request-action@v2.1.0
-        with:
-          route: GET /repos/{repository}/releases/{release}/assets
-          repository: ${{ github.repository }}
-          release: ${{ github.event.release.id }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: updateLinks
         uses: actions/github-script@v6
         with:
           script: |
             const updateLinks = require("./.github/scripts/updateWikiLinks");
-            updateLinks(${{ steps.assetsQuery.outputs.data }}, "wiki");
+            updateLinks(${{ github.event.inputs.version }}, "wiki");
+            
       - name: commitAndPushWiki
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
