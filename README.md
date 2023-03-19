@@ -28,4 +28,5 @@ As of now, the OPC UA server is in an alpha version, and we are currently conduc
 # CNDEX
 [CNDEX OPC UA server](../../wiki/CNDEX) is compatible with PRIMA POWER LASER and other CNC models that use OpenCNC, allowing for seamless communication between the OPC UA server and the CNCs.
 
-[SYNTEC](../../wiki/SYNTEC)
+# SYNTEC
+[SYNTEC OPC UA server](../../wiki/SYNTEC) offers connectivity for both new and older versions of SYNTEC CNCs. It provides a rich interface to fetch machine data from these types of CNCs, making it an essential tool for monitoring and analyzing machine performance.
