@@ -18,6 +18,8 @@ To make this possible, we provide a variety of builds for this OPC UA server tha
 
 This OPC UA server has been tested and proven to work well on the SINUMERIK 840 Dpl series, as well as on other models of Siemens SINUMERIK.
 
+Read more about [s7onlinx for PROFIBUS/MPI communication](s7onlinx-for-PROFIBUS-MPI).
+
 ## FANUC FOCAS
 [FANUC FOCAS OPC UA server](../../wiki/FANUC-FOCAS) utilizes the FOCAS protocol to communicate with FANUC CNCs and provides a rich interface to collect important machine data.
 
