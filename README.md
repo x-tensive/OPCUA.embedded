@@ -6,8 +6,8 @@ The OPCUA server code is fully cross-platform, meaning it can be used on a varie
 
 Using OPCUA embedded allows for greater connectivity and interoperability between different devices and systems. It also allows for easier data exchange and analysis, making it possible to optimize processes and increase efficiency.
 
-[SINUMERIK S7 TCP](../../wiki/SINUMERIK-S7-TCP)\
-The OPC UA server enables the connection of Siemens SINUMERIK CNCs, including the 840 Dsl and 828 Dsl models, and other models through Ethernet, utilizing the S7 TCP protocol. This allows for remote communication with the CNCs.
+# SINUMERIK S7 TCP
+The [SINUMERIK S7 TCP OPC UA server](../../wiki/SINUMERIK-S7-TCP) enables the connection of Siemens SINUMERIK CNCs, including the 840 Dsl and 828 Dsl models, and other models through Ethernet, utilizing the S7 TCP protocol. This allows for remote communication with the CNCs.
 
 However, in situations where external communication via S7 TCP is not possible, the OPC UA server can be installed directly on the operator HMI. This allows the server to communicate with the CNC and PLC via S7 TCP protocol through internal Ethernet network instead of relying on external communication protocols.
 
