@@ -28,3 +28,7 @@ As of now, the OPC UA server is in an alpha version, and we are currently conduc
 
 ## SYNTEC
 [SYNTEC OPC UA server](../../wiki/SYNTEC) offers connectivity for both new and older versions of SYNTEC CNCs. It provides a rich interface to fetch machine data from these types of CNCs, making it an essential tool for monitoring and analyzing machine performance.
+
+# General concepts
+
+OPC UA server instances are explained in [this article](../../wiki/Instances).
