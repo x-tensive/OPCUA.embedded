@@ -25,6 +25,7 @@ This OPC UA server has been tested and proven to work well on the SINUMERIK 840 
 
 As of now, the OPC UA server is in an alpha version, and we are currently conducting intensive testing to ensure its reliability and compatibility with various FANUC CNC models.
 
-[CNDEX](../../wiki/CNDEX)
+# CNDEX
+[CNDEX OPC UA server](../../wiki/CNDEX) is compatible with PRIMA POWER LASER and other CNC models that use OpenCNC, allowing for seamless communication between the OPC UA server and the CNCs.
 
 [SYNTEC](../../wiki/SYNTEC)
