@@ -11,8 +11,6 @@ Using OPCUA embedded allows for greater connectivity and interoperability betwee
 
 However, in situations where external communication via S7 TCP is not possible, the OPC UA server can be installed directly on the operator HMI. This allows the server to communicate with the CNC and PLC via S7 TCP protocol through internal Ethernet network instead of relying on external communication protocols.
 
-
-
 # SINUMERIK S7 ONLINX
 If the operator HMI is connected to the CNC and PLC via PROFIBUS/MPI, and the S7 TCP protocol is unavailable, the [SINUMERIK S7 ONLINX OPC UA server](../../wiki/SINUMERIK-S7-ONLINX) can be used. It is installed directly on the operator HMI and utilizes the s7onlinx interface to communicate through PROFIBUS/MPI.
 
@@ -21,7 +19,7 @@ To make this possible, we provide a variety of builds for this OPC UA server tha
 This OPC UA server has been tested and proven to work well on the SINUMERIK 840 Dpl series, as well as on other models of Siemens SINUMERIK.
 
 # FANUC FOCAS
-[FANUC FOCAS OPC UA server](../../wiki/FANUC-FOCAS) utilizes the FOCAS protocol to communicate with FANUC CNCs and provides a rich set of APIs to collect important machine data.
+[FANUC FOCAS OPC UA server](../../wiki/FANUC-FOCAS) utilizes the FOCAS protocol to communicate with FANUC CNCs and provides a rich interface to collect important machine data.
 
 As of now, the OPC UA server is in an alpha version, and we are currently conducting intensive testing to ensure its reliability and compatibility with various FANUC CNC models.
 
