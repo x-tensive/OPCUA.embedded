@@ -20,7 +20,10 @@ To make this possible, we provide a variety of builds for this OPC UA server tha
 
 This OPC UA server has been tested and proven to work well on the SINUMERIK 840 Dpl series, as well as on other models of Siemens SINUMERIK.
 
-[FANUC FOCAS](../../wiki/FANUC-FOCAS)
+# FANUC FOCAS
+[FANUC FOCAS OPC UA server](../../wiki/FANUC-FOCAS) utilizes the FOCAS protocol to communicate with FANUC CNCs and provides a rich set of APIs to collect important machine data.
+
+As of now, the OPC UA server is in an alpha version, and we are currently conducting intensive testing to ensure its reliability and compatibility with various FANUC CNC models.
 
 [CNDEX](../../wiki/CNDEX)
 
