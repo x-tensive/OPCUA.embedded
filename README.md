@@ -33,4 +33,4 @@ As of now, the OPC UA server is in an alpha version, and we are currently conduc
 
 OPC UA server instances are explained in [this article](../../wiki/Instances).
 
-How to request, install and manage licenses is explained [here](../../wiki/Licensing)
+How to request, install and manage licenses is explained [here](../../wiki/Licensing).
