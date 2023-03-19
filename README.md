@@ -1,3 +1,11 @@
 # OPCUA.embedded
 
 [SINUMERIK S7 TCP](../../wiki/SINUMERIK-S7-TCP)
+
+[SINUMERIK S7 ONLINX](../../wiki/SINUMERIK-S7-ONLINX)
+
+[FANUC FOCAS](../../wiki/FANUC-FOCAS)
+
+[CNDEX](../../wiki/CNDEX)
+
+[SYNTEC](../../wiki/SYNTEC)
