@@ -27,3 +27,15 @@
 ### ADDED:
 - Windows NT4 support
 - SINUMERIK S7 ONLINE for Windows NT4
+
+
+## [v1.2.2] - 2022-10-16
+### ADDED:
+- FANUC FOCAS opcua server. ALPHA version, do not use in production!
+
+
+## [v1.2.1] - 2022-08-10
+### FIXED:
+- s7nck & s7onck: estimate REQUEST pdu size - to correctly merge packages.\
+  OPCUA server generates corrupted requests in case when s7 dispatcher groups too many read items in one request.
+
