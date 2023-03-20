@@ -23,7 +23,7 @@
 - SYNTEC license validation
 - SYNTEC NcStateDump
 
-## [v1.4.0] - 2023-12-31
+## [v1.4.0] - 2023-01-31
 ### ADDED:
 - Windows NT4 support
 - SINUMERIK S7 ONLINE for Windows NT4
