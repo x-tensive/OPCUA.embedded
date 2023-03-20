@@ -1,10 +1,10 @@
 
 # [v1.4.5] - 
-## CHANGED:
+### CHANGED:
 - UA namespaces changed to use "http://dpaxt.io" prefix
 
 # [v1.4.4]
-## FIXED:
+### FIXED:
 - HID calculation was fixed
   license HID calculation was corrupted in case of multiple ethernet interfaces including virtual interfaces (like VPN or Bridge)
 
