@@ -5,7 +5,7 @@
 
 ## [v1.4.4]
 ### FIXED:
-- HID calculation was fixed
+- HID calculation was fixed\
   license HID calculation was corrupted in case of multiple ethernet interfaces including virtual interfaces (like VPN or Bridge)
 
 ## [v1.4.3]
