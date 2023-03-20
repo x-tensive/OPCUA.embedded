@@ -37,5 +37,5 @@
 ## [v1.2.1] - 2022-08-10
 ### FIXED:
 - s7nck & s7onck: estimate REQUEST pdu size - to correctly merge packages.\
-  OPCUA server generates corrupted requests in case when s7 dispatcher groups too many read items in one request.
+  OPC UA server generates corrupted requests in case when s7 dispatcher groups too many read items in one request.
 
