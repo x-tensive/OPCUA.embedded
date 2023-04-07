@@ -2,14 +2,16 @@ const path = require("path");
 const fs = require("fs");
 
 const v1Regex = new RegExp("_v\\d*\\.\\d*\\.\\d*\\.exe", "g");
-const v2Regex = new RegExp("/v\\d*\\.\\d*\\.\\d*/", "g");
+const v2Regex = new RegExp("_v\\d*\\.\\d*\\.\\d*($|\n)", "g");
+const v3Regex = new RegExp("/v\\d*\\.\\d*\\.\\d*/", "g");
 
 function updateLinksInFile(fileName, version)
 {
     console.log(fileName);
     fs.readFile(fileName, { encoding: "utf8" }, (err, data) => {
         data = data.replaceAll(v1Regex, `_${version}.exe`);
-        data = data.replaceAll(v2Regex, `/${version}/`);
+        data = data.replaceAll(v2Regex, `_${version}\n`);
+        data = data.replaceAll(v3Regex, `/${version}/`);
         fs.writeFile(fileName, data, { encoding: "utf8" }, () => {});
     });
 }
