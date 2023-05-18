@@ -6,29 +6,24 @@ The OPC UA server code is fully cross-platform, meaning it can be used on a vari
 
 Using OPC UA embedded allows for greater connectivity and interoperability between different devices and systems. It also allows for easier data exchange and analysis, making it possible to optimize processes and increase efficiency.
 
-## SINUMERIK S7 TCP
-[SINUMERIK S7 TCP OPC UA server](../../wiki/SINUMERIK-S7-TCP)
+# OPC UA servers
 
-## SINUMERIK S7 ONLINX
-[SINUMERIK S7 ONLINX OPC UA server](../../wiki/SINUMERIK-S7-ONLINX)
+SIEMENS SINUMERIK:
+* [SINUMERIK S7 TCP](../../wiki/SINUMERIK-S7-TCP)
+* [SINUMERIK S7 ONLINX](../../wiki/SINUMERIK-S7-ONLINX)
+* SINUTRAIN SLCAP (on request)
 
-## FANUC FOCAS
-[FANUC FOCAS OPC UA server](../../wiki/FANUC-FOCAS)
+[FANUC FOCAS](../../wiki/FANUC-FOCAS)
 
-## CNDEX
-[CNDEX OPC UA server](../../wiki/CNDEX)
+[PRIMA POWER CNDEX](../../wiki/CNDEX)
 
-## SYNTEC
-[SYNTEC OPC UA server](../../wiki/SYNTEC)
+[SYNTEC](../../wiki/SYNTEC)
 
-## DELTA TAU PMAC
-[DELTA TAU PMAC OPC UA server](../../wiki/DELTA-TAU-PMAC)
+[DELTA TAU PMAC](../../wiki/DELTA-TAU-PMAC)
 
-## IPG PHOTONICS YLR
-[IPG PHOTONICS YLR OPC UA server](../../wiki/IPG-PHOTONICS-YLR)
+[IPG PHOTONICS YLR](../../wiki/IPG-PHOTONICS-YLR)
 
-## MODBUS
-[MODBUS OPC UA server](../../wiki/MODBUS)
+[MODBUS](../../wiki/MODBUS)
 
 # General concepts
 
