@@ -4,8 +4,6 @@ OPCUA embedded is a set of OPC UA servers specifically designed to work with pop
 
 The OPC UA server code is fully cross-platform, meaning it can be used on a variety of different operating systems. For some OPC UA servers, there is even a version available for Linux, as well as for older versions of the Windows operating system such as XP/2000/NT4. This is especially important since many CNC machines with HMI operator panels still use these older operating systems.
 
-Using OPC UA embedded allows for greater connectivity and interoperability between different devices and systems. It also allows for easier data exchange and analysis, making it possible to optimize processes and increase efficiency.
-
 # OPC UA servers
 
 SIEMENS SINUMERIK:
