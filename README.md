@@ -27,4 +27,6 @@ SIEMENS SINUMERIK:
 
 OPC UA server instances are explained in [this article](../../wiki/Instances).
 
+Aliases configuration and use is explained [here](../../wiki/Aliases).
+
 How to request, install and manage licenses is explained [here](../../wiki/Licensing).
