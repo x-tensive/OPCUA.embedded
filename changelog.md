@@ -1,4 +1,19 @@
+## [v1.5.0] - 2023-04-07
+### features:
+- switch to mbedtls 2.28.3
+- platform build tools: mbedtls, open62541
+- restructure libs dir
+- update build scripts and installer scripts
+- s7nck for linux: cleanup CMakeLists.txt
+- github actions: build for linux
+- qt5 git submodule
+- opcua model compiler scripts for linux: license.sh, opcuamodel.sh
+- FOCAS add "AS" node to comply address spaces structure agreements
+- test server upgrade to v143 toolset
 
+### bugfixes:
+- bugfix: FOCAS incorrectly determines CNC system
+ 
 ## [v1.4.5] - 2023-03-10
 ### CHANGED:
 - UA namespaces changed to use "http://dpaxt.io" prefix
