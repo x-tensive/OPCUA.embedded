@@ -67,7 +67,7 @@
 ## [v1.5.7] - 2023-06-15
 ### features:
 - MODBUS slave id support
-- universal tcp connection functionality: autmatic reconnect, notifictions model
+- universal tcp connection functionality: autmatic reconnect, notifications model
 - internal refactoring: unify command line args processing, services, OPC UA servers bootstrap code
 
 ## [v1.5.6] - 2023-05-18
