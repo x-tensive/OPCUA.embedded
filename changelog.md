@@ -15,12 +15,12 @@
 
 ## [v1.5.2] - 2023-04-11
 ### bugfixes:
-- Release build of open62541 writes INFO/WARN logs to console std out.
+- Release build of open62541 writes INFO/WARN logs to console std out.\
   INFO/WARN are needed for Debug builds only!
 
 ## [v1.5.1] - 2023-04-10
-This is an EMERGENCEY fix release due to a critical error in v1.5.0:
-OPC UA servers fail to load nodesets.
+This is an EMERGENCEY fix release due to a critical error in v1.5.0:\
+OPC UA servers fail to load nodesets.\
 v1.5.0 was removed from downloads.
 
 ## [v1.5.0] - 2023-04-07
