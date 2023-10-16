@@ -1,3 +1,79 @@
+## [v1.6.3] - 2023-10-16
+### platform:
+- HID calculation: use enX0 adapter when eth0 is not there
+- HID calculation for linux: machine-id is used only if exists
+- update open62541 submodule
+- docker builder: ALPINE builder container
+### MODBUS:
+- modbus worker now fully supports gracefull shutdown
+- modbus synchronous socket io (less code, more reliable)
+- modbus socket listen: fix for linux
+- MODBUS proto: response timeout
+- MODBUS command line args: refactor descriptions
+- modbus OPC UA server now supports Linux
+- modbus OPC UA server is now available as docker image on DockerHub
+### PMAC:
+- PMAC fix BSTR to UA_String conversion
+- PMAC dcom reconnect timeouts
+- pmac pcomm32 stub/proxy
+- PMAC motor dump small fix
+- PMAC now supports "last error"
+- PMAC fix: correct device number to connect
+- PMAC error processing improved
+- PMAC process "RPC server is unavailable" error
+- PMAC async: monitored items, cache, requests, scheduler, handlers
+- PMAC link properties exposed
+
+## [v1.6.2] - 2023-07-24
+### features:
+- MODBUS recovery of protocol failures
+- CNDEX switch opcua server to standard loader
+- PMAC STD model
+- PMAC VAR
+- PMAC DPR MEM
+- PMAC DCOM support
+
+## [v1.6.1] - 2023-07-20
+### features:
+- MODBUS recoverable errors
+- MODBUS request interval default 100 ms
+
+## [v1.6.0] - 2023-07-18
+### features:
+- configurable Aliases \
+  [https://github.com/x-tensive/OPCUA.embedded/wiki/Aliases](https://github.com/x-tensive/OPCUA.embedded/wiki/Aliases)
+### bugfixes:
+- YLR opc ua server: fixes in communication protocol
+
+## [v1.5.11] - 2023-06-29
+### features:
+- MODBUS OPC UA server: graceful process of timeouts.\
+  Important, when device is not ready to send responses.
+
+## [v1.5.10] - 2023-06-28
+### features:
+- MODBUS OPC UA server: configurable timeouts
+- MODBUS OPC UA server: device write
+
+## [v1.5.9] - 2023-06-27
+### features:
+- MODBUS OPC UA server: async model of communiction
+- MODBUS OPC UA server: cache for efficient device reads, transactions scheduler
+
+## [v1.5.8] - 2023-06-19
+### features:
+- MODBUS OPC UA server: pass slave id as index (optional)
+
+## [v1.5.7] - 2023-06-15
+### features:
+- MODBUS slave id support
+- universal tcp connection functionality: autmatic reconnect, notifictions model
+- internal refactoring: unify command line args processing, services, OPC UA servers bootstrap code
+
+## [v1.5.6] - 2023-05-18
+### features:
+- beta release OPC UA server for MODBUS
+
 ## [v1.5.5] - 2023-05-12
 ### bugfixes:
 - HID calculation: legacy/current way to fetch mac addresses
