@@ -10,7 +10,7 @@
 
 ## [v1.5.3] - 2023-04-25
 ### bugfixes:
-- HID calculation
+- HID calculation\
   for some servers with multiple Ethernet interfaces the HID was randomly changing
 
 ## [v1.5.2] - 2023-04-11
