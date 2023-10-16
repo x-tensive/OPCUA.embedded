@@ -1,3 +1,28 @@
+## [v1.5.5] - 2023-05-12
+### bugfixes:
+- HID calculation: legacy/current way to fetch mac addresses
+- DELTA TAU PMAC: multiple fixes in beta version
+
+## [v1.5.4] - 2023-05-06
+### features:
+- beta release OPC UA server for IPG PHOTONICS YLR
+- beta release OPC UA server for DELTA TAU PMAC
+
+## [v1.5.3] - 2023-04-25
+### bugfixes:
+- HID calculation
+  for some servers with multiple Ethernet interfaces the HID was randomly changing
+
+## [v1.5.2] - 2023-04-11
+### bugfixes:
+- Release build of open62541 writes INFO/WARN logs to console std out.
+  INFO/WARN are needed for Debug builds only!
+
+## [v1.5.1] - 2023-04-10
+This is an EMERGENCEY fix release due to a critical error in v1.5.0:
+OPC UA servers fail to load nodesets.
+v1.5.0 was removed from downloads.
+
 ## [v1.5.0] - 2023-04-07
 ### features:
 - switch to mbedtls 2.28.3
