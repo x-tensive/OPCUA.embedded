@@ -1,6 +1,6 @@
 ## [v1.6.3] - 2023-10-16
 ### platform:
-- HID calculation: use enX0 adapter when eth0 is not there
+- HID calculation for linux: use enX0 adapter when eth0 is not there
 - HID calculation for linux: machine-id is used only if exists
 - update open62541 submodule
 - docker builder: ALPINE builder container
