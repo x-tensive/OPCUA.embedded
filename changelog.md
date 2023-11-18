@@ -1,3 +1,23 @@
+## [v1.7.0] - 2023-11-17
+### platform:
+- The COMMON library has been introduced, serving as a shared component across all OPC UA servers. It encapsulates essential functionalities such as license management, certificate management, instances, aliases, and more. This approach enables us to maintain cleaner and bug-free projects for OPC UA servers
+-  COMMON library 's-sync' strategy. It offers an asynchronous engine designed for SERIAL/SYNCHRONOUS protocols. In this context, 's-sync' signifies that the next API call is permissible only when the preceding call has been completed, and the response/error has been received. This strategy is particularly useful for SYNCHRONOUS protocols, where the API call blocks the worker thread until the response is received. Typically, the 's-sync' strategy is applied when utilizing third-party protocol implementations, often supplied by CNC/PLC vendors, where we may lack in-depth control over the internal workings of the protocol
+- COMMON lib: modbus, syntec, ylr, pmac, cndex, evl
+
+### SYNTEC:
+- switch to loader and arg2
+- NcGetOSInfo - custom read - to avoid any requirements on indexes.
+- NC pending alarms
+- s-sync
+- gracefully process device disconnect/reconnect
+- retrying callbacks
+- MFC cleanup
+- cnc File System support, including Download, Send, List files, List dirs
+- kernel/multi tcp always come both if any
+- OCUser.dll should be included and installed - as it is needed for kernel api
+### PMAC:
+- s-sync
+
 ## [v1.6.3] - 2023-10-16
 ### platform:
 - HID calculation for linux: use enX0 adapter when eth0 is not there
