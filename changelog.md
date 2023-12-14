@@ -1,3 +1,19 @@
+## [v2.0.0] - 2023-12-14
+### platform:
+- fix monitored items register/unregister notifications to safely handle bad (unparsable) indexes
+- unification and simplification of platform (windows/lynux) abstraction layer
+
+### s7:
+- s7 deep refactoring of the protocol implementation, async model, transactions scheduler, cache and engines
+- s7 asynchronous tcp connection layer with event driven model
+- s7 CLNP and COTP protocols deep refactoring including event driven model
+- s7 ONLINX deep refactring including event driven model, much more simple and clean implementation
+- s7 TRANSPORT deep refactoring, much more simple and clean implementation
+- s7 API layer is introduced which extends s7 TRANSPORT with all types of s7 requests and s7 responses
+- s7 AMQ layer is introduced which is in full responsibility of transactions and tasks handling
+- s7 SCHEDULER deep refactoring
+- s7 SCHEDULER strategies: "device read", "device write", "batch read"
+
 ## [v1.7.0] - 2023-11-17
 ### platform:
 - The COMMON library has been introduced, serving as a shared component across all OPC UA servers. It encapsulates essential functionalities such as license management, certificate management, instances, aliases, and more. This approach enables us to maintain cleaner and bug-free projects for OPC UA servers
