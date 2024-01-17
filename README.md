@@ -6,24 +6,24 @@ The OPC UA server code is fully cross-platform, meaning it can be used on a vari
 
 # OPC UA servers
 
-SIEMENS SINUMERIK:
-* [SINUMERIK S7 TCP](../../wiki/SINUMERIK-S7-TCP)
-* [SINUMERIK S7 ONLINX](../../wiki/SINUMERIK-S7-ONLINX)
+[SIEMENS SINUMERIK](https://ua.dpa-xt.com/sinumerik):
+* SINUMERIK S7 TCP
+* SINUMERIK S7 ONLINX
 * SINUTRAIN SLCAP (on request)
 
-[MAZAK SMOOTH](../../wiki/MAZAK-SMOOTH)
+[MAZAK](https://ua.dpa-xt.com/mazak)
 
-[FANUC FOCAS](../../wiki/FANUC-FOCAS)
+[FANUC FOCAS](https://ua.dpa-xt.com/fanuc)
 
-[PRIMA POWER CNDEX](../../wiki/CNDEX)
+[PRIMA POWER](https://ua.dpa-xt.com/primapower)
 
-[SYNTEC](../../wiki/SYNTEC)
+[SYNTEC](https://ua.dpa-xt.com/syntec)
 
-[DELTA TAU PMAC](../../wiki/DELTA-TAU-PMAC)
+[DELTA TAU](https://ua.dpa-xt.com/deltatau)
 
-[IPG PHOTONICS YLR](../../wiki/IPG-PHOTONICS-YLR)
+[IPG PHOTONICS](https://ua.dpa-xt.com/ipgphotonics)
 
-[MODBUS](../../wiki/MODBUS)
+[MODBUS](https://ua.dpa-xt.com/modbus)
 
 # General concepts
 
