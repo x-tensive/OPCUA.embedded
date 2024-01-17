@@ -27,10 +27,10 @@ The OPC UA server code is fully cross-platform, meaning it can be used on a vari
 
 # General concepts
 
-OPC UA server instances are explained in [this article](../../wiki/Instances).
+OPC UA server instances are explained in [this article](https://ua.dpa-xt.com/instances).
 
-Aliases configuration and use is explained [here](../../wiki/Aliases).
+Aliases configuration and use is explained [here](https://ua.dpa-xt.com/aliases).
 
-How to request, install and manage licenses is explained [here](../../wiki/Licensing).
+How to request, install and manage licenses is explained [here](https://ua.dpa-xt.com/licensing).
 
-Remote Services command line [tool](../../wiki/RS-tool).
+Remote Services command line [tool](https://ua.dpa-xt.com/rs).
