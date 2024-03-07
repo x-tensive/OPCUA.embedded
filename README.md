@@ -12,7 +12,7 @@ The OPC UA server code is fully cross-platform, meaning it can be used on a vari
 
 [IPG PHOTONICS](https://ua.dpa-xt.com/ipgphotonics)
 
-[MAZAK](https://ua.dpa-xt.com/mazak)
+[MAZAK MAZATROL](https://ua.dpa-xt.com/mazatrol)
 
 [MODBUS](https://ua.dpa-xt.com/modbus)
 
