@@ -1,8 +1,29 @@
+## [v2.4.0] - 2024-03-04
+### platform:
+- aliases support for field access converter
+### s7:
+- S7 ONLINX strict transactions processing\
+  the response transaction should be exactly data response OR request ack. otherwise - reconnect!!!
+### MAZAK MAZATROL MATRIX 2
+- new OPC UA server released for MAZAK MAZATROL MATRIX 2 and MATRIX NEXUS 2 series
+
+## [v2.3.0] - 2024-02-04
+### PICANOL BICOM:
+- new OPC UA server released for PICANOL BICOM
+
+## [v2.2.0] - 2024-01-25
+### s7:
+- s7: nck/plc batch read - invalid data item move next when data item comes with bad status
+- s7 onlinx: close driver on disconnect, otherwise ghost transactions arrive on session open
+
+## [v2.1.0] - 2024-01-09
+### MAZAK MAZATROL SMOOTH:
+- new OPC UA server released for MAZAK MAZATROL SMOOTH serial C/G/X
+
 ## [v2.0.0] - 2023-12-14
 ### platform:
 - fix monitored items register/unregister notifications to safely handle bad (unparsable) indexes
 - unification and simplification of platform (windows/lynux) abstraction layer
-
 ### s7:
 - s7 deep refactoring of the protocol implementation, async model, transactions scheduler, cache and engines
 - s7 asynchronous tcp connection layer with event driven model
@@ -19,7 +40,6 @@
 - The COMMON library has been introduced, serving as a shared component across all OPC UA servers. It encapsulates essential functionalities such as license management, certificate management, instances, aliases, and more. This approach enables us to maintain cleaner and bug-free projects for OPC UA servers
 -  COMMON library 's-sync' strategy. It offers an asynchronous engine designed for SERIAL/SYNCHRONOUS protocols. In this context, 's-sync' signifies that the next API call is permissible only when the preceding call has been completed, and the response/error has been received. This strategy is particularly useful for SYNCHRONOUS protocols, where the API call blocks the worker thread until the response is received. Typically, the 's-sync' strategy is applied when utilizing third-party protocol implementations, often supplied by CNC/PLC vendors, where we may lack in-depth control over the internal workings of the protocol
 - COMMON lib: modbus, syntec, ylr, pmac, cndex, evl
-
 ### SYNTEC:
 - switch to loader and arg2
 - NcGetOSInfo - custom read - to avoid any requirements on indexes.
