@@ -4,7 +4,7 @@
 ### s7:
 - S7 ONLINX strict transactions processing\
   the response transaction should be exactly data response OR request ack. otherwise - reconnect!!!
-### MAZAK MAZATROL MATRIX 2
+### MAZAK MAZATROL MATRIX 2:
 - new OPC UA server released for MAZAK MAZATROL MATRIX 2 and MATRIX NEXUS 2 series
 
 ## [v2.3.0] - 2024-02-04
